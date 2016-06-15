@@ -1,0 +1,16 @@
+{
+  "name": "text-calendar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "keywords": [],
+  "author": "substack",
+  "license": "BSD",
+  "dependencies": {
+    "sprintf": "^0.1.5",
+    "strftime": "~0.9.2"
+  }
+}
