@@ -1,6 +1,16 @@
 var sprintf = require('sprintf')
 var strftime = require('strftime')
 
+var label = (function () {
+  var days = []
+  var d = new Date('1995-01-01 00:00:00')
+  for (var i = 1; i <= 7; i++) {
+    d.setDate(i)
+    days.push(strftime('%a', d).substr(0,2))
+  }
+  return days.join(' ')
+})()
+
 module.exports = function (date) {
   var first = new Date(date)
   first.setHours(0)
@@ -19,7 +29,7 @@ module.exports = function (date) {
   var day = 1 - first.getDay()
   var lines = []
   lines.push(center(strftime('%B %Y', date), 20))
-  lines.push('Su Mo Tu We Th Fr Sa')
+  lines.push(label)
 
   for (var w = 0; w < weeks; w++) {
     var row = []
