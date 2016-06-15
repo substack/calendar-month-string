@@ -31,7 +31,9 @@ module.exports = function (date) {
     lines.push(row.map(function (day) {
       if (day <= 0) return '  '
       else if (day > last.getDate()) return '  '
-      else return sprintf('%2d', day)
+      else if (date.getDate() === day) {
+        return sprintf('\x1b[7m%2d\x1b[0m', day)
+      } else return sprintf('%2d', day)
     }).join(' '))
   }
   return lines.join('\n')
