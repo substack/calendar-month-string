@@ -1,3 +1,3 @@
 var calendar = require('../')
-var txt = calendar(new Date)
+var txt = calendar()
 console.log(txt)

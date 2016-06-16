@@ -1,5 +1,6 @@
 var sprintf = require('sprintf')
 var strftime = require('strftime')
+var fcolor = require('fuzzy-ansi-color')
 
 var label = (function () {
   var days = []
@@ -11,7 +12,23 @@ var label = (function () {
   return days.join(' ')
 })()
 
-module.exports = function (date) {
+module.exports = function (date, opts) {
+  if (typeof date === 'string') date = new Date(date)
+  if (!date) date = new Date
+  if (Object.prototype.toString.call(date) !== '[object Date]') {
+    opts = date
+    date = new Date
+  }
+  if (!opts) opts = {}
+  var color = {}
+  var defaultColors = { 'current': 'reverse' }
+  var xcolors = opts.colors || defaultColors
+  Object.keys(xcolors).forEach(function (key) {
+    var c = parseColor(xcolors[key])
+    if (key === 'current') key = date.getDate()
+    color[key] = c
+  })
+
   var first = new Date(date)
   first.setHours(0)
   first.setMinutes(0)
@@ -41,8 +58,8 @@ module.exports = function (date) {
     lines.push(row.map(function (day) {
       if (day <= 0) return '  '
       else if (day > last.getDate()) return '  '
-      else if (date.getDate() === day) {
-        return sprintf(reverse('%2d'), day)
+      else if (color.hasOwnProperty(day)) {
+        return color[day](sprintf('%2d', day))
       } else return sprintf('%2d', day)
     }).join(' '))
   }
@@ -56,4 +73,10 @@ function center (str, n) {
 
 function reverse (str) {
   return '\x1b[7m' + str + '\x1b[0m'
+}
+
+var reset = fcolor('reset')
+function parseColor (cstr) {
+  var c = fcolor(cstr)
+  return function (str) { return c + str + reset }
 }
