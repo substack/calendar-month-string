@@ -2,6 +2,8 @@
 
 generate text calendars showing a single month
 
+These calendars are formatted like the unix `cal` command.
+
 # example
 
 ``` js
