@@ -75,7 +75,7 @@ function reverse (str) {
   return '\x1b[7m' + str + '\x1b[0m'
 }
 
-var reset = fcolor('reset')
+var reset = '\x1b[27m'
 function parseColor (cstr) {
   var c = fcolor(cstr)
   return function (str) { return c + str + reset }

@@ -1,7 +1,7 @@
 {
   "name": "calendar-month-text",
   "version": "1.0.0",
-  "description": "",
+  "description": "generate text calendars showing a single month",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js"
@@ -13,5 +13,16 @@
     "fuzzy-ansi-color": "^1.0.0",
     "sprintf": "^0.1.5",
     "strftime": "~0.9.2"
-  }
+  },
+  "devDependencies": {
+    "tape": "^4.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/substack/calendar-month-text.git"
+  },
+  "bugs": {
+    "url": "https://github.com/substack/calendar-month-text/issues"
+  },
+  "homepage": "https://github.com/substack/calendar-month-text#readme"
 }
