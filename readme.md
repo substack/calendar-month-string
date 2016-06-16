@@ -1,4 +1,4 @@
-# calendar-month-text
+# calendar-month-string
 
 generate text calendars showing a single month
 
@@ -7,7 +7,7 @@ These calendars are formatted like the unix `cal` command.
 # example
 
 ``` js
-var calendar = require('calendar-month-text')
+var calendar = require('calendar-month-string')
 var txt = calendar()
 console.log(txt)
 ```
@@ -27,7 +27,7 @@ Su Mo Tu We Th Fr Sa
 You can color the dates with ansi codes:
 
 ``` js
-var calendar = require('calendar-month-text')
+var calendar = require('calendar-month-string')
 var txt = calendar(new Date('june 2016'), {
   colors: {
     7: 'bg red fg yellow',
@@ -46,7 +46,7 @@ console.log(txt)
 # api
 
 ``` js
-var calendar = require('calendar-month-text')
+var calendar = require('calendar-month-string')
 ```
 
 ## var txt = calendar(date, opts)
@@ -68,5 +68,5 @@ BSD
 # install
 
 ```
-npm install calendar-month-text
+npm install calendar-month-string
 ```

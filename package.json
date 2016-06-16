@@ -1,5 +1,5 @@
 {
-  "name": "calendar-month-text",
+  "name": "calendar-month-string",
   "version": "1.0.0",
   "description": "generate text calendars showing a single month",
   "main": "index.js",
@@ -19,10 +19,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/substack/calendar-month-text.git"
+    "url": "git+https://github.com/substack/calendar-month-string.git"
   },
   "bugs": {
-    "url": "https://github.com/substack/calendar-month-text/issues"
+    "url": "https://github.com/substack/calendar-month-string/issues"
   },
-  "homepage": "https://github.com/substack/calendar-month-text#readme"
+  "homepage": "https://github.com/substack/calendar-month-string#readme"
 }
