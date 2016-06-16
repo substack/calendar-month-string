@@ -75,8 +75,10 @@ function reverse (str) {
   return '\x1b[7m' + str + '\x1b[0m'
 }
 
-var reset = '\x1b[27m'
+var soft = '\x1b[27m'
+var reset = fcolor('reset')
 function parseColor (cstr) {
   var c = fcolor(cstr)
-  return function (str) { return c + str + reset }
+  var rset = cstr === 'reverse' ? soft : reset
+  return function (str) { return c + str + rset }
 }
