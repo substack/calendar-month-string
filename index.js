@@ -42,7 +42,7 @@ module.exports = function (date) {
       if (day <= 0) return '  '
       else if (day > last.getDate()) return '  '
       else if (date.getDate() === day) {
-        return sprintf('\x1b[7m%2d\x1b[0m', day)
+        return sprintf(reverse('%2d'), day)
       } else return sprintf('%2d', day)
     }).join(' '))
   }
@@ -52,4 +52,8 @@ module.exports = function (date) {
 function center (str, n) {
   var i = Math.floor(Math.max(0, n - str.length)/2)+1
   return Array(i).join(' ') + str
+}
+
+function reverse (str) {
+  return '\x1b[7m' + str + '\x1b[0m'
 }
